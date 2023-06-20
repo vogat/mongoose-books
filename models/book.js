@@ -16,3 +16,5 @@ const bookSchema = new Schema({
         max: 5
     }
 });
+
+module.exports = mongoose.model('Book', bookSchema);

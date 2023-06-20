@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const booksCtrl = require('../controllers/books');
+
+//GET /books
+router.get('/', booksCtrl.index);
+
+//Get /books/new
+router.get('/new', booksCtrl.new)
+
+//GET /books/:id
+router.get('/:id', booksCtrl.show)
+
+//POST /books
+router.post('/', booksCtrl.create);
 
 module.exports = router;

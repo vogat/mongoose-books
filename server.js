@@ -4,8 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+// connect to the database with AFTER the config vars are processed
+require('./config/database');
+
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
+var reviewsRouter = require('./routes/reviews');
 
 var app = express();
 
@@ -21,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
