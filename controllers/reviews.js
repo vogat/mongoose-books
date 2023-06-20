@@ -4,7 +4,7 @@ module.exports = {
     create
 };
 
-async function create(rew, res) {
+async function create(req, res) {
     const book = await Book.findById(req.params.id);
     book.reviews.push(req.body);
     try {

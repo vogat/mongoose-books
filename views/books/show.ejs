@@ -8,7 +8,7 @@
     <div>Genre: </div>
     <div><%= book.genre %></div>
     <div>Release Year: </div>
-    <div><%= book.releaseYear %></div>
+    <div><%= book.year %></div>
   </section>
 
   <br><br><h2>Reviews</h2>
@@ -24,9 +24,9 @@
     <option value="4">4</option>
     <option value="5" selected>5</option>
   </select>
-  <input type="submit" value="Add Book">
+  <input type="submit" value="Add Review">
 
-  <% if (book.reviews.length) { %>
+  <% if (book.reviews && book.reviews.length) { %>
     <table>
         <thead>
             <tr>
