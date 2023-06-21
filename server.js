@@ -11,7 +11,8 @@ require('./config/database');
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var reviewsRouter = require('./routes/reviews');
-var editsRouter = require('./routes/edits');
+var methodOverride = require('method-override');
+// var editsRouter = require('./routes/edits');
 
 var app = express();
 
@@ -24,11 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/', reviewsRouter);
-app.use('/', editsRouter);
+// app.use('/', editsRouter);
 
 
 // catch 404 and forward to error handler
