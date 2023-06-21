@@ -30,6 +30,7 @@
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>Date</th>
                 <th>Review</th>
                 <th>Rating</th>
@@ -38,6 +39,14 @@
         <tbody>
             <% book.reviews.forEach(function(b) { %>
                 <tr>
+                    <td>
+                        <form 
+                        action="/books/<%= b.id %>?_method=DELETE" 
+                        method="POST"
+                        class="delete-form"
+                        >
+                        <button type="submit">X</button>
+                    </td>
                     <td><%= b.createdAt.toLocaleDateString() %></td>
                     <td><%= b.content %></td>
                     <td><%= b.rating %></td>

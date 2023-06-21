@@ -7,12 +7,17 @@ const booksCtrl = require('../controllers/books');
 router.get('/', booksCtrl.index);
 
 //Get /books/new
-router.get('/new', booksCtrl.new)
+router.get('/new', booksCtrl.new);
 
 //GET /books/:id
-router.get('/:id', booksCtrl.show)
+router.get('/:id', booksCtrl.show);
 
 //POST /books
 router.post('/', booksCtrl.create);
+
+//DELETE
+router.post('/:id', booksCtrl.delete)
+
+
 
 module.exports = router;

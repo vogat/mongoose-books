@@ -3,6 +3,7 @@
 <table id="list">
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Author</th>
       <th>Genre</th>
@@ -12,15 +13,23 @@
   </thead>
   <tbody>
     <% books.forEach(function(b) { %>
-      <tr>
+        <tr>
+            <td><form 
+            action="/books/<%= b.id %>?_method=DELETE" 
+            method="POST"
+            class="delete-form"
+          >
+            <button type="submit">X</button>
+        </form></td>
         <td><%= b.title %></td>
         <td><%= b.author %></td>
         <td><%= b.genre %></td>
         <td><%= b.year %></td>
         <td><%= b.rating %></td>
         <td><a href="/books/<%= b._id %>">DETAILS</a></td>
-      </tr>
+        <td><a href="/books/<%= b._id %>/edits">EDIT</a></td>
       <% }); %>
+        </tr>
     </tbody>
   </table>
   

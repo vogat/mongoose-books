@@ -4,7 +4,8 @@ module.exports = {
     index,
     show,
     new: newBook,
-    create
+    create,
+    delete: deleteBook
 };
 
 async function index(req, res) {
@@ -37,5 +38,14 @@ async function index(req, res) {
       // Typically some sort of validation error
       console.log(err);
       res.render('books/new', { errorMsg: err.message });
+    }
+  }
+
+  async function deleteBook(req, res) {
+    try {
+      await Book.findByIdAndRemove(req.params.id);
+      res.redirect('/books');
+    }  catch (err) {
+      res.render('/books', { errorMsg: err.message });
     }
   }

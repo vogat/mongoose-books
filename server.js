@@ -11,6 +11,7 @@ require('./config/database');
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var reviewsRouter = require('./routes/reviews');
+var editsRouter = require('./routes/edits');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/', reviewsRouter);
+app.use('/', editsRouter);
 
 
 // catch 404 and forward to error handler
